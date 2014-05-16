@@ -56,8 +56,8 @@ def add_helmet(request):
         form=add_product(request.POST,request.FILES)
     if form.is_valid():
         product_brand_name = form.cleaned_data['product_brand_name']
-        color = form.cleaned_data['product_color']
-        print color
+        #color = form.cleaned_data['product_color']
+        #print color
     else:
         print 'oops'
     return render_to_response('add_helmet.html', locals(), context_instance = RequestContext(request))

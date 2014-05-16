@@ -17,5 +17,5 @@ class add_product(forms.Form):
     product_brand_name  =   forms.CharField(label = 'Enter Brand Name', required = True)
     product_model_name  =   forms.CharField(label = 'Enter Model Name', required = True)
     price               =   forms.CharField(label = 'Enter Price in INR', required = True)
-#    product_color       =   forms.CheckboxSelectMultiple()
-    product_color       = forms.ChoiceField(widget=forms.CheckboxSelectMultiple())
+    product_color       =   forms.CheckboxSelectMultiple()
+#    product_color       = forms.ChoiceField(widget=forms.CheckboxInput())
