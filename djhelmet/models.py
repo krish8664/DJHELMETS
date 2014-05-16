@@ -12,7 +12,7 @@ class Product(models.Model):
         return self.product_id
 
 class Images(models.Model):
-    product_id          =   models.ForeignKey(Product,related_name = 'product_id_Product_images')
+    product_id          =   models.ForeignKey(Product)
     title               =   models.CharField(max_length = "200")
     product_images      =   models.ImageField(upload_to="Product_Image")
 
@@ -31,8 +31,8 @@ class Product_colors(models.Model):
     color             =  models.ForeignKey(Colors)
     product_id        =  models.ForeignKey(Product)
 
-    def __unicode__(self):
-        return self.color
+#    def __unicode__(self):
+#        return self.color
 
 class Size(models.Model):
     size                    =  models.CharField(max_length=100)
@@ -44,6 +44,6 @@ class Product_size(models.Model):
     product_id              =  models.ForeignKey(Product)
     size                    =  models.ForeignKey(Size)
 
-    def __unicode__(self):
-        return self.size
+#    def __unicode__(self):
+#        return self.size
 
