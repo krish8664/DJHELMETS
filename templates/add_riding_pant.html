@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Admin - Home</title>
+    <title>Add-Riding Pant</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 <nav class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -68,6 +67,63 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<br><br><br>
+<h1 style="text-align:center">ADD RIDING PANT</h1>
+<div class="col-sm-2">
+
+</div>
+<div class="col-sm-10">
+    <form class="form-horizontal" method="post"  enctype="multipart/form-data" action="" role="form">{% csrf_token %}
+        <div class="form-group col-sm-8">
+            <br><br>
+            <label class="col-sm-2 control-label">Brand Name</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="id_product_brand_name" name="product_brand_name" >
+            </div>
+        </div>
+        <div class="form-group col-sm-8">
+            <br><br>
+            <label class="col-sm-2 control-label">Model Name</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="id_product_model_name" name="product_model_name" >
+            </div>
+        </div>
+        <div class="form-group col-sm-8">
+            <br><br>
+            <label class="col-sm-2 control-label">Price</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="id_price" name="price" >
+            </div>
+        </div>
+        {% if colors %}
+            <div class="form-group col-sm-5">
+                <br><br>
+                <label class="col-sm-3 control-label">Colors</label>
+                <div style="float:left"> {{ form.product_color }}</div>
+            </div>
+        {% endif %}
+        <div class="form-group col-sm-5">
+            <br><br>
+            <label class="col-sm-3 control-label">Size</label>
+            <div style="float:left">{{ form.product_size }}</div>
+        </div>
+        <div class="form-group col-sm-5">
+            <br><br>
+            <label class="col-sm-3 control-label">Images</label>
+            <div class="form-group col-sm-5">
+                <table><tr><td>{{ form.picture1 }}<br></td><td>{{ form.picture2 }}<br></td></tr>
+                    <tr><td>{{ form.picture3 }}<br></td><td>{{ form.picture4 }}<br></td></tr>
+                    <tr><td>{{ form.picture5 }}<br></td></tr>
+                </table>
+            </div>
+            <div class="form-group col-sm-8">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Add Product</button>
+                </div>
+            </div>
+    </form>
+</div>
+
 
 </body>
 </html>

@@ -57,9 +57,7 @@ def add_helmet(request):
         form=add_product(request.POST,request.FILES)
     if form.is_valid():
         add_helmet=Product()
-        add_size=Product_size()
-        add_color=Product_colors()
-        add_picture=Images()
+
         random_id=generate_random_id()
         add_helmet.product_id=random_id
         add_helmet.product_category="Helmet"
@@ -70,23 +68,163 @@ def add_helmet(request):
         add_details=Product.objects.get(product_id=random_id)
         check=add_details
         color = form.cleaned_data['product_color']
-        for available_colors in colors:
+        for available_colors in color:
+            add_color=Product_colors()
             color_check=Colors.objects.get(color=available_colors)
             add_color.product_id=check
             add_color.color=color_check
             add_color.save()
         size = form.cleaned_data['product_size']
         for available_size in size:
+            add_size=Product_size()
             size_check=Size.objects.get(size=available_size)
             add_size.product_id=check
             add_size.size=size_check
             add_size.save()
-        add_picture.product_id=check
-        add_picture.title = form.cleaned_data['product_model_name']
-        add_picture.product_images = request.FILES['picture']
-        add_picture.save()
+        i=1
+        while i<=5:
+            add_picture=Images()
+            add_picture.product_id=check
+            add_picture.title = form.cleaned_data['product_model_name']
+            add_picture.product_images = request.FILES['picture%d'%i]
+            add_picture.save()
+            i+=1
+        return HttpResponseRedirect("/admin_home/")
 
     return render_to_response('add_helmet.html', locals(), context_instance = RequestContext(request))
+
+
+@login_required
+def add_jacket(request):
+    colors = Colors.objects.all()
+    #print colors
+    form=add_product()
+    if request.POST:
+        form=add_product(request.POST,request.FILES)
+    if form.is_valid():
+        add_jacket=Product()
+        random_id=generate_random_id()
+        add_jacket.product_id=random_id
+        add_jacket.product_category="Riding Jacket"
+        add_jacket.product_brand_name = form.cleaned_data['product_brand_name']
+        add_jacket.product_model_name = form.cleaned_data['product_model_name']
+        add_jacket.price = form.cleaned_data['price']
+        add_jacket.save()
+        add_details=Product.objects.get(product_id=random_id)
+        check=add_details
+        color = form.cleaned_data['product_color']
+        for available_colors in color:
+            add_color=Product_colors()
+            color_check=Colors.objects.get(color=available_colors)
+            add_color.product_id=check
+            add_color.color=color_check
+            add_color.save()
+        size = form.cleaned_data['product_size']
+        for available_size in size:
+            add_size=Product_size()
+            size_check=Size.objects.get(size=available_size)
+            add_size.product_id=check
+            add_size.size=size_check
+            add_size.save()
+        i=1
+        while i<=5:
+            add_picture=Images()
+            add_picture.product_id=check
+            add_picture.title = form.cleaned_data['product_model_name']
+            add_picture.product_images = request.FILES['picture%d'%i]
+            add_picture.save()
+            i+=1
+        return HttpResponseRedirect("/admin_home/")
+
+    return render_to_response('add_jacket.html', locals(), context_instance = RequestContext(request))
+
+@login_required
+def add_riding_pant(request):
+    colors = Colors.objects.all()
+    #print colors
+    form=add_product()
+    if request.POST:
+        form=add_product(request.POST,request.FILES)
+    if form.is_valid():
+        add_riding_pant=Product()
+        random_id=generate_random_id()
+        add_riding_pant.product_id=random_id
+        add_riding_pant.product_category="Riding Pant"
+        add_riding_pant.product_brand_name = form.cleaned_data['product_brand_name']
+        add_riding_pant.product_model_name = form.cleaned_data['product_model_name']
+        add_riding_pant.price = form.cleaned_data['price']
+        add_riding_pant.save()
+        add_details=Product.objects.get(product_id=random_id)
+        check=add_details
+        color = form.cleaned_data['product_color']
+        for available_colors in color:
+            add_color=Product_colors()
+            color_check=Colors.objects.get(color=available_colors)
+            add_color.product_id=check
+            add_color.color=color_check
+            add_color.save()
+        size = form.cleaned_data['product_size']
+        for available_size in size:
+            add_size=Product_size()
+            size_check=Size.objects.get(size=available_size)
+            add_size.product_id=check
+            add_size.size=size_check
+            add_size.save()
+        i=1
+        while i<=5:
+            add_picture=Images()
+            add_picture.product_id=check
+            add_picture.title = form.cleaned_data['product_model_name']
+            add_picture.product_images = request.FILES['picture%d'%i]
+            add_picture.save()
+            i+=1
+        return HttpResponseRedirect("/admin_home/")
+
+    return render_to_response('add_riding_pant.html', locals(), context_instance = RequestContext(request))
+
+@login_required
+def add_riding_boot(request):
+    colors = Colors.objects.all()
+    #print colors
+    form=add_product()
+    if request.POST:
+        form=add_product(request.POST,request.FILES)
+    if form.is_valid():
+        add_riding_boot=Product()
+        random_id=generate_random_id()
+        add_riding_boot.product_id=random_id
+        add_riding_boot.product_category="Riding Boot"
+        add_riding_boot.product_brand_name = form.cleaned_data['product_brand_name']
+        add_riding_boot.product_model_name = form.cleaned_data['product_model_name']
+        add_riding_boot.price = form.cleaned_data['price']
+        add_riding_boot.save()
+        add_details=Product.objects.get(product_id=random_id)
+        check=add_details
+        color = form.cleaned_data['product_color']
+        for available_colors in color:
+            add_color=Product_colors()
+            color_check=Colors.objects.get(color=available_colors)
+            add_color.product_id=check
+            add_color.color=color_check
+            add_color.save()
+        size = form.cleaned_data['product_size']
+        for available_size in size:
+            add_size=Product_size()
+            size_check=Size.objects.get(size=available_size)
+            add_size.product_id=check
+            add_size.size=size_check
+            add_size.save()
+        i=1
+        while i<=5:
+            add_picture=Images()
+            add_picture.product_id=check
+            add_picture.title = form.cleaned_data['product_model_name']
+            add_picture.product_images = request.FILES['picture%d'%i]
+            add_picture.save()
+            i+=1
+        return HttpResponseRedirect("/admin_home/")
+
+    return render_to_response('add_riding_boot.html', locals(), context_instance = RequestContext(request))
 
 
 def generate_random_id():

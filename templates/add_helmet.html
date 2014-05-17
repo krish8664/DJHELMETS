@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Add-Helmet</title>
     <!-- Latest compiled and minified CSS -->
@@ -34,13 +34,13 @@
                     <ul class="dropdown-menu">
                         <li><a href="/add_helmet/">Helmet</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Jacket</a></li>
+                        <li><a href="/add_jacket/">Jacket</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Riding Pant</a></li>
+                        <li><a href="/add_riding_pant/">Riding Pant</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Riding Boots</a></li>
+                        <li><a href="/add_riding_boot/">Riding Boots</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Others</a></li>
+                        <li><a href="/add_other/">Others</a></li>
                     </ul>
                 </li>
             </ul>
@@ -99,9 +99,6 @@
         <div class="form-group col-sm-5">
             <br><br>
             <label class="col-sm-3 control-label">Colors</label>
-{#            <div class="col-sm-2">{% for value in colors%} #}
-{#                <input type="checkbox" class="form-control col-sm-2" id="id_product_color" name="product_color" value="{{ value.color }}">{{ value.color }}<br>#}
-{#         {% endfor %}</div>#}
             <div style="float:left"> {{ form.product_color }}</div>
         </div>
         {% endif %}
@@ -113,8 +110,12 @@
         <div class="form-group col-sm-5">
             <br><br>
             <label class="col-sm-3 control-label">Images</label>
-            <div style="float:left">{{ form.picture }}</div>
-        </div>
+            <div class="form-group col-sm-5">
+                <table><tr><td>{{ form.picture1 }}<br></td><td>{{ form.picture2 }}<br></td></tr>
+                      <tr><td>{{ form.picture3 }}<br></td><td>{{ form.picture4 }}<br></td></tr>
+                      <tr><td>{{ form.picture5 }}<br></td></tr>
+                </table>
+            </div>
         <div class="form-group col-sm-8">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Add Product</button>
