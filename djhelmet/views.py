@@ -10,7 +10,9 @@ from random import randint
 
 @login_required
 def home(request):
-    print "hello"
+    helmets=Product.objects.filter(product_category="Helmet")
+    images=Images.objects.all()
+    print helmets
     return render_to_response('index.html', locals(), context_instance = RequestContext(request))
 
 
